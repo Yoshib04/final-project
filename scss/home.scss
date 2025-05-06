@@ -1,0 +1,278 @@
+@use 'variables' as v;
+$logo-swap: '../images/logo-white.png';
+
+.home-section {
+
+   .home-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-image: url('../images/home-hero.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      text-align: center;
+      color: v.$white;
+
+      &::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: rgba(254, 224, 54, 0.7);
+         z-index: 1;
+      }
+      .hero-background {
+         position: relative;
+         z-index: 2;
+         padding: 40px 20px;
+         max-width: 800px;
+      }
+
+      .home-header {
+         font-family: v.$font-base;
+         font-size: 56px;
+         margin-bottom: 10px;
+         line-height: 1.1;
+      }
+
+      .home-subheader {
+         font-family: v.$font-base;
+         font-size: 24px;
+         color: v.$primary-color;
+         margin-bottom: 20px;
+      }
+
+      .home-description {
+         font-family: v.$font-light;
+         font-size: 18px;
+         margin-bottom: 30px;
+         max-width: 420px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      .home-button {
+         display: inline-block;
+         background-color: v.$primary-color;
+         color: v.$white;
+         padding: 15px 35px;
+         font-family: v.$font-bold;
+         font-size: 16px;
+         text-decoration: none;
+         transition: background-color 0.3s ease;
+
+         &:hover {
+            background-color: darken(v.$primary-color, 10%);
+            cursor: pointer;
+         }
+      }
+   }
+
+   .home-quote {
+      padding: 80px 20px;
+      align-items: center;
+      background-color: v.$white;
+      color: v.$text-dark;
+      
+      .quote-text {
+         font-family: v.$font-base;
+         font-size: 15px;
+         color: v.$secondary-color;
+         max-width: 789px;
+         margin: 0 auto 30px auto;
+         line-height: 1.6;
+      }
+
+      .quote-author {
+         
+         .author-name {
+            font-family: v.$font-base;
+            font-size: 19px;
+            color: v.$primary-color;
+            max-width: 789px;
+            text-align: left;
+            margin: 0 auto ;
+         }
+
+         .author-role {
+            font-family: v.$font-base;
+            font-size: 14px;
+            color: v.$text-light;
+            margin: 0 auto;
+            max-width: 789px;
+         }
+      }
+   }
+
+   .events {
+      background-color: v.$dark-purple;
+      color: v.$white;
+      padding: 60px 5%;
+
+      .events-title {
+         font-family: v.$font-bold;
+         font-size: 29px;
+         margin-bottom: 15px;
+         padding-bottom: 10px;
+         position: relative;
+         display: inline-block;
+
+         &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background-color: v.$white;
+         }
+      }
+
+      .events-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 30px;
+         margin-top: 30px;
+         justify-content: center;
+      }
+
+      .event {
+         display: flex;
+         align-items: flex-start;
+
+         .event-date {
+            background-color: v.$primary-color;
+            color: v.$white;
+            padding: 10px;
+            text-align: center;
+            margin-right: 20px;
+            min-width: 70px;
+
+            .event-day {
+               font-family: v.$font-bold;
+               font-size: 32px;
+               line-height: 1;
+            }
+
+            .event-month {
+               font-family: v.$font-base;
+               font-size: 14px;
+               text-transform: uppercase;
+               margin-top: 5px;
+            }
+         }
+
+         .event-details {
+            .event-title {
+               font-family: v.$font-base;
+               font-size: 15px;
+               margin-bottom: 15px;
+               max-width: 140px;
+               max-height: 41px;
+            }
+
+            .event-description {
+               font-family: v.$font-light;
+               color: v.$primary-color;
+               font-size: 15px;
+               line-height: 1.5;
+               max-width: 140px;
+               max-height: 78px;
+               margin-bottom: 30px;
+            }
+         }
+      }
+   }
+}
+
+@media (max-width: 992px) {
+   .home-section {
+      .home-hero {
+         min-height: 60vh;
+         .home-header { font-size: 48px; }
+         .home-subheader { font-size: 21px; }
+      }
+
+      .events {
+         padding: 50px 3%;
+         .event {
+             flex-basis: calc(50% - 15px);
+             max-width: calc(50% - 15px);
+         }
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .home-section {
+      .home-hero {
+         min-height: 50vh;
+         .home-header { font-size: 40px; }
+         .home-subheader { font-size: 19px; }
+         .home-description { font-size: 16px; }
+         .home-button { padding: 12px 30px; font-size: 14px;}
+      }
+
+      .home-quote {
+         padding: 60px 15px;
+         .quote-text { font-size: 21px; }
+      }
+
+      .events {
+         padding: 40px 5%;
+         .events-list {
+            flex-direction: column;
+            gap: 40px;
+         }
+         .event {
+            flex-basis: 100%;
+            max-width: 100%;
+            flex-direction: row;
+         }
+      }
+   }
+}
+
+@media (max-width: 480px) {
+   .home-section {
+      .home-hero {
+         min-height: 45vh;
+         .hero-background { padding: 20px 15px; }
+         .home-header { font-size: 32px; }
+         .home-subheader { font-size: 18px; }
+         .home-description { font-size: 14px; }
+         .home-button { padding: 10px 25px; font-size: 14px;}
+      }
+
+      .home-quote {
+         padding: 40px 10px;
+         .quote-text { font-size: 18px; }
+         .author-name { font-size: 16px; }
+         .author-role { font-size: 13px; }
+      }
+
+      .events {
+         padding: 30px 5%;
+         .events-title { font-size: 24px;}
+         .event {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .event-date {
+               margin-right: 0;
+               margin-bottom: 15px;
+            }
+            .event-details{
+               text-align: center;
+            }
+         }
+      }
+   }
+}
+
